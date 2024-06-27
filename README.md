@@ -14,20 +14,20 @@ Creation of the table
 
 Connection to the database
 
-![](moviedb6.png)
+![](moviedb2.png)
 
 movie_app.py is then execute for data input e.g: inputting Actors data, Directors data, Movies data and so on
 
 When the movie_app.py file is executed, a menu will be shown containing a range of options for the user to choose from in order to input the data.
 
-![](moviedb7.png)
+![](moviedb3.png)
 
 Here is an illustration of a scenario where an option is chosen, such as option 3, and the required information is provided. Once the necessary data is entered, it informs you about the location where the data is subsequently added.
 
-![](moviedb8.png)
+![](moviedb4.png)
 
 Once the information above has been entered, it is subsequently transferred and stored in the SQLite database, similar to the example provided.
 
-![](moviedb9.png)
+![](moviedb5.png)
 
 To view the complete code, kindly refer to movie_system.py and movie_app.py.
