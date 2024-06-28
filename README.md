@@ -10,35 +10,35 @@ movie_system.py file is first executed to get the connection to the SQLite datab
 
 Creation of the table
 
-![](moviedb1.png)
+![](images/moviedb1.png)
 
 Starting the connection to the database
 
-![](moviedb2.png)
+![](images/moviedb2.png)
 
 movie_app.py is then execute for data input e.g: inputting Actors data, Directors data, Movies data and so on
 
 ### Preview of the code
 Gets the connection from sqlite3 by importing the movie_system file
 
-![](moviedb6.png)
+![](images/moviedb6.png)
 
 The below image is what needed to get a connection from the movie_system file and allows the user to input data to the database.
 
-![](moviedb7.png)
+![](images/moviedb7.png)
 
 ### Preview of movie_app.py file being executed
 
 When the movie_app.py file is executed, a menu will be shown in the terminal containing a range of options for the user to choose from in order to input the data.
 
-![](moviedb3.png)
+![](images/moviedb3.png)
 
 Here is an illustration of a scenario where an option is chosen, such as option 2, and the required information is provided. Once the necessary data is entered, it informs you about the location where the data is subsequently added.
 
-![](moviedb4.png)
+![](images/moviedb4.png)
 
 Once the information above has been entered, it is subsequently transferred and stored in the SQLite database application, similar to the example provided.
 
-![](moviedb5.png)
+![](images/moviedb5.png)
 
 To view the complete code, kindly refer to movie_system.py and movie_app.py
