@@ -1,32 +1,43 @@
 # Movie Database with Python & SQL tools
 
-Developed a side project to demonstrate my proficiency in Python scripting language along with SQL database. 
+This project serves as a showcase of my skills in Python scripting language and SQL database management.
 
-SQLite is the database that was employed and the import module that was utilised was sqlite3. sqlite3 module was served as a connection to the SQLite database along with performing SQL query.
+The SQLite database was specifically chosen for this project, with the sqlite3 module being used to establish a connection and execute SQL queries.
 
 movie_system.py file is first executed to get the connection to the SQLite database ready by creating the tables along with established queries.
 
-Preview of the movie_system.py code
+### Preview of the movie_system.py code
 
 Creation of the table
 
 ![](moviedb1.png)
 
-Connection to the database
+Starting the connection to the database
 
 ![](moviedb2.png)
 
 movie_app.py is then execute for data input e.g: inputting Actors data, Directors data, Movies data and so on
 
-When the movie_app.py file is executed, a menu will be shown containing a range of options for the user to choose from in order to input the data.
+### Preview of the code
+Gets the connection from sqlite3 by importing the movie_system file
+
+![](moviedb6.png)
+
+The below image is what needed to get a connection from the movie_system file and allows the user to input data to the database.
+
+![](moviedb7.png)
+
+### Preview of movie_app.py file being executed
+
+When the movie_app.py file is executed, a menu will be shown in the terminal containing a range of options for the user to choose from in order to input the data.
 
 ![](moviedb3.png)
 
-Here is an illustration of a scenario where an option is chosen, such as option 3, and the required information is provided. Once the necessary data is entered, it informs you about the location where the data is subsequently added.
+Here is an illustration of a scenario where an option is chosen, such as option 2, and the required information is provided. Once the necessary data is entered, it informs you about the location where the data is subsequently added.
 
 ![](moviedb4.png)
 
-Once the information above has been entered, it is subsequently transferred and stored in the SQLite database, similar to the example provided.
+Once the information above has been entered, it is subsequently transferred and stored in the SQLite database application, similar to the example provided.
 
 ![](moviedb5.png)
 
