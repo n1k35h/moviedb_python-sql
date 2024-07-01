@@ -9,9 +9,10 @@ This is the data modelling of how each table are connected and relation between 
 
 ![](images/movie_datamodelling.png)
 
+### Preview of the movie_system.py code
 movie_system.py file is first executed to get the connection to the SQLite database ready by creating the tables along with established queries.
 
-### Preview of the movie_system.py code
+
 
 Creation of the table
 
