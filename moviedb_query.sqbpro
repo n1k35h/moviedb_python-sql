@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/nhdmi/Documents/Python/Practice/ProjectsUsingSQL&amp;Python/Movie/moviedb.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="150"/><column_width id="3" width="3373"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainstudio"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="actors" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="96"/><column index="2" value="195"/><column index="3" value="152"/><column index="4" value="84"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="directors" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="72"/><column index="2" value="192"/><column index="3" value="193"/><column index="4" value="125"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="movies" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="105"/><column index="2" value="300"/><column index="3" value="143"/><column index="4" value="98"/><column index="5" value="72"/><column index="6" value="147"/><column index="7" value="155"/><column index="8" value="152"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="moviestudio" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="105"/><column index="2" value="106"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="studio" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="106"/><column index="2" value="199"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">-- Selecting all tables
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="C:/Users/nhdmi/Documents/Python/Practice/ProjectsUsingSQL&amp;Python/moviedb_python-sql/moviedb.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="150"/><column_width id="3" width="3373"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,6:mainstudio"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="actors" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort><column index="1" mode="1"/></sort><column_widths><column index="1" value="96"/><column index="2" value="216"/><column index="3" value="152"/><column index="4" value="84"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="genres" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="103"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table><table schema="main" name="studio" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk="_rowid_"><sort/><column_widths><column index="1" value="106"/><column index="2" value="199"/></column_widths><filter_values/><conditional_formats/><row_id_formats/><display_formats/><hidden_columns/><plot_y_axes/><global_filter/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">-- Selecting all tables
 
 SELECT * FROM actors;
 
@@ -21,9 +21,10 @@ SELECT movie_name, release_date, duration, movie_rating, review_rating, gross_in
 ORDER BY movie_name ASC;
 
 -- Joining 2 tables together and changing table name
-SELECT directors.dir_name AS 'Director Name', movies.movie_name AS 'Movie Name' FROM directors
-JOIN movies ON directors.dir_id = movies.dir_id
-ORDER BY directors.dir_name ASC
+SELECT directors.dir_name AS 'Director Name', count(movies.movie_name) AS 'Movie Name' FROM directors
+JOIN movies ON directors.dir_id = movies.dir_id
+GROUP BY directors.dir_name
+ORDER BY movies.movie_name ASC
 
 -- Joining multiple tables together - Movies &amp; Genres
 SELECT movies.movie_name AS 'Movie Name', genres.genre_name AS 'Genre Name' FROM moviegenre
@@ -38,14 +39,33 @@ JOIN movies ON movies.movie_id = moviecast.movie_id
 ORDER BY movies.movie_name ASC
 
 -- Count the number of movies that an actor starred in
-SELECT actors.actor_name AS 'Actor Name', COUNT(moviecast.actor_id) AS 'Actor Movie Count' FROM moviecast
-JOIN actors ON actors.actor_id = moviecast.actor_id
-GROUP BY actors.actor_name
+SELECT actors.actor_name AS 'Actor Name', COUNT(movies.movie_name) AS 'Actor Movie Count' FROM moviecast
+JOIN actors ON actors.actor_id = moviecast.actor_id
+JOIN movies ON movies.movie_id = moviecast.movie_id
+GROUP BY actors.actor_name
+ORDER BY movies.movie_name DESC
 
 -- Count the number of movies that a Director directed
-SELECT directors.dir_name AS 'Director Name', COUNT(movies.dir_id) AS 'Director Movies Count' FROM movies
+SELECT directors.dir_name AS 'Director Name', COUNT(movies.movie_name) AS 'Director Movies Count' FROM movies
 JOIN directors ON directors.dir_id = movies.dir_id
-GROUP BY directors.dir_name
+GROUP BY directors.dir_name
+ORDER BY movies.movie_name ASC
+
+SELECT actor_name, 
+	CAST((strftime('%Y', 'now') - strftime('%Y', date_of_birth)) AS INTEGER) -
+	(STRFTIME('%m-%d', 'now') &lt; STRFTIME('%m-%d', date_of_birth)) AS age
+	FROM actors;
+
+	
+SELECT actor_name,  
+    YEAR(CURRENT_DATE) - YEAR(date_of_birth) - 
+    CASE 
+        WHEN MONTH(CURRENT_DATE) &lt; MONTH(date_of_birth) 
+             OR (MONTH(CURRENT_DATE) = MONTH(date_of_birth) AND DAY(CURRENT_DATE) &lt; DAY(date_of_birth)) 
+        THEN 1 
+        ELSE 0 
+    END AS age
+FROM actors
 
 -- Deleting the Table 
 DROP TABLE actors
@@ -53,6 +73,6 @@ DROP TABLE directors
 DROP TABLE genres
 DROP TABLE movies
 DROP TABLE moviecast
-DROP TABLE moviegenre
-DROP TABLE studio
+DROP TABLE moviegenre
+DROP TABLE studio
 DROP TABLE moviestudio</sql><current_tab id="0"/></tab_sql></sqlb_project>
