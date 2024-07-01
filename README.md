@@ -9,10 +9,8 @@ This is the data modelling of how each table are connected and relation between 
 
 ![](images/movie_datamodelling.png)
 
-### Preview of the movie_system.py code
+### Preview of the code
 movie_system.py file is first executed to get the connection to the SQLite database ready by creating the tables along with established queries.
-
-
 
 Creation of the table
 
@@ -24,7 +22,6 @@ Starting the connection to the database
 
 movie_app.py is then execute for data input e.g: inputting Actors data, Directors data, Movies data and so on
 
-### Preview of the code
 Gets the connection from sqlite3 by importing the movie_system file
 
 ![](images/moviedb6.png)
