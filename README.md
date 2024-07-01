@@ -4,6 +4,11 @@ This project serves as a showcase of my skills in Python scripting language and 
 
 The SQLite database was specifically chosen for this project, with the sqlite3 module being used to establish a connection and execute SQL queries.
 
+### Data Model
+This is the data modelling of how each table are connected and relation between each table
+
+![](images/movie_datamodelling.png)
+
 movie_system.py file is first executed to get the connection to the SQLite database ready by creating the tables along with established queries.
 
 ### Preview of the movie_system.py code
