@@ -5,12 +5,12 @@ This project serves as a showcase of my skills in Python scripting language and 
 The SQLite database was specifically chosen for this project, with the sqlite3 module being used to establish a connection and execute SQL queries.
 
 ### Data Model
-This is the data modelling of how each table are connected and relation between each table
+This is the data modelling of how each table are connected and relational between each table
 
 ![](images/movie_datamodelling.png)
 
 ### Preview of the code
-movie_system.py file is first executed to get the connection to the SQLite database ready by creating the tables along with established queries.
+movie_system.py file is first executed to get the connection to the SQLite database ready by creating the tables along with established SQL queries.
 
 Creation of the table
 
@@ -44,4 +44,4 @@ Once the information above has been entered, it is subsequently transferred and 
 
 ![](images/moviedb5.png)
 
-To view the complete code, kindly refer to movie_system.py and movie_app.py
+To view the complete code, kindly refer to [movie_system.py](movie_system.py) and [movie_app.py](movie_app.py)
